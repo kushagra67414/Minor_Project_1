@@ -9,39 +9,30 @@ int main()
 {
 int C = 12, D = 4, E = 8;
 
-int counter = 0 , CW ;
-int no;
-float slot_time = 0.00000166;
-int CWmax = 1024;
+int counter = 0 ;
+double slot_time = 0.00000166, CW ;
+int CWmax = 1024, CWmin = 32;
+double BT, G, Total_Backoff_time = 0;
 
-float backoff_time;
-int CWmin = 32;
-float G = 0.125*CWmin;
-int number;
-
-int i;
 
 // C => successful sending times
 // D => Quickly decrease the the CW
 // E => linearly inc the CW
 // G => Threshold quantity
+// CW => Minimun Contention Window Size
+// BT => Backoff time
 
-
-printf("Enter the Curr_BW (CW)  :  ");
-	scanf("%d" , &CW);
+printf("Enter the Curr_BW (CW) by user  :  ");
+	scanf("%lf" , &CW) ;
 
 //printf("Enter the CWmax  :  ");
 //	scanf("%d" , &CWmax);
 
 
-no = (rand() % (CWmin - CWmax + 1 ) +1 ) ;
-		printf("random number is : %d \n " , no);
-		backoff_time = no * slot_time;
-		printf(" => backoff time at initial  is : %0.8f \n\n " , backoff_time);
 
 
 FILE *fp;
-   char *f_name = "aa.txt";
+   char *f_name = "aaa.txt";
    char ch;
    
    fp = fopen(f_name, "r+");
@@ -51,94 +42,82 @@ FILE *fp;
    } else {
       printf("%s: opened in read mode.\n\n", f_name);
    
-   }  
-    int charToInt(char c){
-
-return c - '0';
-}
+   }
    
 	while ((ch = fgetc(fp) )!= EOF) {		
 	// end-of-file
-      printf ("frame %c \n ", ch);
-      number = charToInt(ch);
+    
+	if(ch == '0' || ch == '1'){
+	   printf("frame %c \n ", ch);	
+	
+	}
+	  
+    
       
       
-if(number == 1)
+if(ch == '1')
 {
-		if(counter < C){
+	
+
+if(counter < 12){
 	
 	counter = counter + 1;
-		printf("Counter value is :  %d \n" , counter);
-
 	CW = CW / D;
-	printf("CW divide by d (4) :  %d \n" , CW );
+	printf(" The CW is : %0.8f\n" , CW);
+	
+	G = 0.125*CW ;
+	printf("Value of G [Threshold Quantity] is : %0.8f\n" , G);
 	
 	if(CW < G){
-		CW = G;
-		printf("CW in CW < G is  :  %d \n" , CW);
+	CW = G;
+		BT = CW * slot_time;
+		printf(" => The Backoff Time is : %0.8f\n" , BT);
 		
-		no = (rand() % (CW - CWmin + 1 ) +1 ) ;
-		printf("random number is : %d \n " , no);
-		
-		backoff_time = no * slot_time;
-		printf(" => backoff time is : %0.8f \n\n " , backoff_time);
-		
-		
+	}else{
+		BT = CW * slot_time;
+		printf(" => The Backoff Time is : %0.8f\n" , BT);
 	}
-	else{
-		
-			printf("CW in CW < G (else part ) :  %d \n" , CW);
-
-		
-		no = (rand() % (CW - CWmin + 1 ) +1 ) ;
-		printf("random number is : %d \n " , no);
-		backoff_time = no * slot_time;
-		printf(" => backoff time is : %0.8f \n\n " , backoff_time);
-	}
+}
 	
 }
-else{
+else if(ch == '0'){
 	
 	counter = 1;
-	
-		printf("Counter value when > than C is :  %d \n" , counter);
+	CW = CW + (E * CWmin) ;
 		
-	CW = CW + E*CWmin ;
+		printf(" The CW is : %lf\n" , CW );
 	
 	if(CW > CWmax){
+		CW = CWmax;
 		
-		CW = CWmax ;
-		printf("CW in CW > CWmax is :  %d \n" , CW);
+		BT = CW *slot_time ;
+		printf(" => The Backoff Time is : %0.8f\n" , BT);
 		
-		no = (rand() % (CW - CWmin + 1 ) +1 ) ;
-		printf("random number is : %d \n " , no);
-		backoff_time = no * slot_time;
-		printf(" => backoff time is : %0.8f \n\n " , backoff_time);
-	
 	}else{
-		printf("CW in CW > CWmax (else part ) is  :  %d \n" , CW);
 		
-		no = (rand() % (CW - CWmin + 1 ) +1 ) ;
-		printf("random number is : %d \n " , no);
-		backoff_time = no * slot_time;
-		printf(" => backoff time is : %0.8f \n\n " , backoff_time);
-	
+		BT = CW *slot_time ;
+		printf(" => The Backoff Time is : %0.8f\n" , BT);
+		
 	}
-}
-
-}else {
 	
-	
-	printf("\n  data lost data lost...\n\n");
-}
-
 	
 }
 
 
+if(ch == '1' || ch =='0'){
 
+Total_Backoff_time = Total_Backoff_time + BT;
+
+		
+printf("\n");
+printf("=>  Total Back_off time for frame is :  %0.8f \n " ,Total_Backoff_time);
+printf("\n\n");
+	
+}
 
 
 
 	
+}
+
 }
