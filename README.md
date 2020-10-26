@@ -24,3 +24,6 @@
    [Source code click here](https://github.com/kushagra67414/Minor_Project_1/blob/main/Slow%20Start%20Algorithm/case-2/Slow_Start_using_File_handling_1.3.c)
    ```
    
+3. Binary Exponential Backoff algorithm.
+  * In this algorithm, when the node attempts to send the data unsuccessfully seven times, the function CW() is invoke to set contention window to minimum.
+  which reduce the probabilty of the unsuccessful frame to transmit successfully and for the upcoming nodes if they get unsuccessed.
