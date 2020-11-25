@@ -1,7 +1,20 @@
-   ###                      THE PROPOSED BACKOFF ALGORITHM
+   #                  THE PROPOSED BACKOFF ALGORITHM
+
+
+   ## Proposed Algorithm =>
+   
+   ![WhatsApp Image 2020-11-24 at 10 25 13 PM](https://user-images.githubusercontent.com/46487696/100212082-ef06c280-2f32-11eb-9c31-4f7c37e61bb7.jpeg)
    
    
-   Here, First we compared the backoff time and the frame lost of THE PROPOSED BACKOFF ALGORITHM and Slow-Start Backoff Algorithm.
+   ##  Flowchart =>
+   
+   ![proposed_Backoff](https://user-images.githubusercontent.com/46487696/100211853-a7803680-2f32-11eb-9664-f57f598fa4a5.jpg)
+
+
+   
+   
+   * Here, First we compared the backoff time and the frame lost of THE PROPOSED BACKOFF ALGORITHM and Slow-Start Backoff Algorithm.
+   
    > 1th error stream means = 1 Unsuccessful frame(no of 0's are 1) 
    
    > 2th error stream means = 2 Unsuccessful frames(no of 0's are 2)
