@@ -35,3 +35,10 @@
  * [Click here for the Source Code](https://github.com/kushagra67414/Minor_Project_1/blob/main/Enhanced%20Binary%20Exponential%20Backoff%20algorithm/Enhanced_Binary_Exponential.c)
  
  * https://bansalkushagra.medium.com/e-beb-enhanced-binary-exponential-backoff-algorithm-for-fair-channel-access-5becad07440e
+ 
+ 
+5. **Proposed Backoff Algorithm =>**
+
+ * Here, we compared our Algorithm with Slow-Start Backoff Algorithm. In our Proposed Algorithm, Frame lost has been reduced Upto 75-80 % and half the backoff time of the frame.
+ We analyse our algorithm using line graph too.
+ 
