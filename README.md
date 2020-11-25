@@ -34,3 +34,4 @@
  * This Algorithm solves the Fairness problem up to the maximun point.
  * [Click here for the Source Code](https://github.com/kushagra67414/Minor_Project_1/blob/main/Enhanced%20Binary%20Exponential%20Backoff%20algorithm/Enhanced_Binary_Exponential.c)
  
+ * https://bansalkushagra.medium.com/e-beb-enhanced-binary-exponential-backoff-algorithm-for-fair-channel-access-5becad07440e
