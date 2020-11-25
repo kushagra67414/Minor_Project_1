@@ -2,8 +2,17 @@
    
    
    Here, First we compared the backoff time and the frame lost of THE PROPOSED BACKOFF ALGORITHM and Slow-Start Backoff Algorithm.
-   * First using 500 bits =>
-   * And, Errors Streams means No. of Unsuccessful frames in a continuation.
+   > 1th error stream means = 1 Unsuccessful frame(no of 0's are 1) 
+   
+   > 2th error stream means = 2 Unsuccessful frames(no of 0's are 2)
+   
+   > 3th error stream means = 3 Unsuccessful frames(no of 0's are 3)
+  
+  * And, Errors Streams means No. of Unsuccessful frames in a continuation(0 = implies unsuccessful).
+
+
+
+* First using 500 bits =>
    
 ![Screenshot (719)](https://user-images.githubusercontent.com/46487696/100210129-a4844680-2f30-11eb-97de-9568896c9b00.png)
 
@@ -18,3 +27,21 @@
 
 
 ![Screenshot (721)](https://user-images.githubusercontent.com/46487696/100210134-a64e0a00-2f30-11eb-8ffe-d43be32c1a91.png)
+
+
+
+## USING LINE GRAPH ANALYSIS BETWEEN THE PROPOSED BACKOFF ALGORITHM AND SLOW-START BACKOFF ALGORITHM
+
+
+* First => Backoff time with respect to no of error stream =>
+
+
+![Screenshot (722)](https://user-images.githubusercontent.com/46487696/100211454-2a54c180-2f32-11eb-891a-94e56cb9bcbf.png)
+
+
+* Second => Fame Lost with respect to no of error stream =>
+
+
+![Screenshot (723)](https://user-images.githubusercontent.com/46487696/100211457-2c1e8500-2f32-11eb-98c3-d2750928bb71.png)
+
+
